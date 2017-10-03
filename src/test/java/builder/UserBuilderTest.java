@@ -19,4 +19,5 @@ public class UserBuilderTest {
         assertEquals(calendar, user.getBirthdate());
         assertEquals(false, user.isActive());
     }
+
 }
