@@ -8,7 +8,7 @@ branches:
 notifications:
   email:
     recipients:
-    - architect@gmail.com
+    - jaime.hernandezortiz@gmail.com
 services:
 - mysql
 before_install:
@@ -16,3 +16,6 @@ before_install:
 script:
 #Test unitario y de integracion en develop
 - mvn verify --settings settings.xml
+- mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify --settings settings.xml
+- mvn sonar:sonar -Dsonar.organization=zuldare-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_APAW1 --settings settings.xml
+
