@@ -1,20 +1,27 @@
 package composite;
 
-public class TaskLeaf extends TaskComponent {
-    private int valor;
+import model.Task;
 
-    public TaskLeaf(int valor) {
-        this.valor = valor;
+public class TaskLeaf extends TaskComponent {
+    private Task task;
+
+    public TaskLeaf(Task task) {
+        this.task = task;
     }
 
     @Override
     public String toString() {
-        return "Leaf[" + this.valor + "]";
+        return "Hoja[Task(" + this.task.getId() + ")]";
     }
 
     @Override
     public String view() {
         return toString();
+    }
+
+    @Override
+    public String viewBranchBrothers() {
+        return "";
     }
 
     @Override

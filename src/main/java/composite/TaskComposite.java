@@ -15,16 +15,21 @@ public class TaskComposite extends TaskComponent {
 
     @Override
     public String view() {
+        return this.toString();
+    }
+
+    @Override
+    public String viewBranchBrothers() {
         String result = "";
         for (TaskComponent taskComponent : listTaskComponents) {
-            result += taskComponent.view();
+            result += this.toString() + " tiene " + taskComponent.view() + "; ";
         }
         return result;
     }
 
     @Override
     public String toString() {
-        return "[" + this.name + "]";
+        return "Nodo[" + this.name + "]";
     }
 
     @Override

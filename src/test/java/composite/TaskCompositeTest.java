@@ -7,15 +7,17 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import builder.TaskBuilder;
+import model.Task;
+import model.User;
+
 public class TaskCompositeTest {
 
     private TaskComponent root;
 
     private TaskComponent sub1;
 
-    private TaskComponent sub11;
-
-    private TaskComponent sub12;
+    private TaskComponent sub2;
 
     private TaskComponent leaf;
 
@@ -23,26 +25,21 @@ public class TaskCompositeTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Before
-    public void ini() {
+    public void init() {
+        Task task = new TaskBuilder(1).user(new User(12)).build();
+        Task task2 = new TaskBuilder(2).user(new User(12)).build();
+        
         this.root = new TaskComposite("raiz");
 
-        this.leaf = new TaskLeaf(1);
+        this.leaf = new TaskLeaf(task);
         this.root.add(leaf);
+        
         this.sub1 = new TaskComposite("sub1");
         this.root.add(sub1);
-        this.root.add(new TaskLeaf(7));
-
-        this.sub11 = new TaskComposite("sub11");
-        this.sub1.add(sub11);
-        this.sub1.add(new TaskLeaf(4));
-        this.sub12 = new TaskComposite("sub12");
-        this.sub1.add(sub12);
-
-        this.sub11.add(new TaskLeaf(2));
-        this.sub11.add(new TaskLeaf(3));
-
-        this.sub12.add(new TaskLeaf(-5));
-        this.sub12.add(new TaskLeaf(6));
+        this.sub1.add(new TaskLeaf(task2)); 
+        
+        this.sub2 = new TaskComposite("sub2");
+        this.root.add(sub2);
     }
 
     @Test
@@ -52,8 +49,8 @@ public class TaskCompositeTest {
 
     @Test
     public void testNumberOfTaskLeafIfComposite() {
-        System.out.println(this.sub12.toString());
-        System.out.println(this.sub12.numberOfTaskComponents());
-        assertEquals(2, this.sub12.numberOfTaskComponents());
+        assertEquals("Nodo[raiz]", this.root.view());
+        assertEquals("Hoja[Task(1)]", this.leaf.view());
+        assertEquals("Nodo[raiz] tiene Hoja[Task(1)]; Nodo[raiz] tiene Nodo[sub1]; Nodo[raiz] tiene Nodo[sub2]; ", this.root.viewBranchBrothers());
     }
 }

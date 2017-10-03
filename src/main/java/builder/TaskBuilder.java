@@ -11,8 +11,12 @@ public class TaskBuilder {
 
     private Task task;
     
-    public TaskBuilder id(int id) {
+    public TaskBuilder(int id) {
         task = new Task(id);
+        task.setId(id); 
+    }
+    
+    public TaskBuilder id(int id) {
         task.setId(id);
         return this;
     }
