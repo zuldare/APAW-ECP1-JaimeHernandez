@@ -25,8 +25,8 @@ public class TaskBuilderTest {
         users.add(user1);
         users.add(user2);
 
-        Task task1 = new TaskBuilder().id(1).state(State.CREATED).user(user1).build();
-        Task task2 = new TaskBuilder().id(2).state(State.CREATED).users(users).build();
+        Task task1 = new TaskBuilder(1).state(State.CREATED).user(user1).build();
+        Task task2 = new TaskBuilder(2).state(State.CREATED).users(users).build();
 
         assertEquals(1, task1.getId());
         assertEquals(State.CREATED, task1.getState());
