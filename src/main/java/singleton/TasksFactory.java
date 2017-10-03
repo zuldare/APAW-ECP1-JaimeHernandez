@@ -23,13 +23,8 @@ public class TasksFactory {
     }
 
     public Task getTask(int id) {
-        Task result = this.tasks.get(id);
-        if (result == null) {
-            this.tasks.put(id, this.task);
-            result = this.task;
-            this.task = new Task(id++);
-        }
-        return result;
+        this.task = tasks.computeIfAbsent(id, k -> new Task(k));
+        return this.task; 
     }
 
     public void removeTask(int id) {

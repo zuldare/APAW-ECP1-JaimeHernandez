@@ -34,10 +34,8 @@ public class TaskBuilder {
     }
     
     public TaskBuilder user(User user) {
+        assert user != null;
         List<User> users = task.getUsers();
-        if (users == null) {
-            users = new ArrayList<>();
-        }
         users.add(user);
         task.setUsers(users);
         return this;

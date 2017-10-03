@@ -8,7 +8,7 @@ public class Task {
 
     private State state;
 
-    private List<User> users = new ArrayList<User>();
+    private List<User> users;
 
     public Task(int id) {
         this.id = id;
@@ -18,10 +18,13 @@ public class Task {
 
     public Task(int id, State state, List<User> users) {
         assert state != null;
-        assert users != null;
         this.id = id;
         this.state = state;
-        this.users = users;
+        if (users == null) {
+            this.users = new ArrayList<User>();
+        } else {
+            this.users = users;
+        }
     }
 
     public int getId() {
