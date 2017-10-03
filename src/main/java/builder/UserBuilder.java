@@ -5,9 +5,9 @@ import java.util.Calendar;
 import model.User;
 
 public class UserBuilder {
-    
+
     private User user;
-    
+
     public UserBuilder id(int id) {
         this.user = new User(id);
         user.setId(id);

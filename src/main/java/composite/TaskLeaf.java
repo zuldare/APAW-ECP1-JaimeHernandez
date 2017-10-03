@@ -29,9 +29,4 @@ public class TaskLeaf extends TaskComponent {
         throw new UnsupportedOperationException("Operación no soportada");
     }
 
-    @Override
-    public int numberOfTaskComponents() {
-        return 1;
-    }
-
 }

@@ -20,7 +20,7 @@ public class TaskBuilderTest {
         Calendar calendar2 = Calendar.getInstance();
         User user1 = new UserBuilder().id(1).name("Juan").birthdate(calendar1).active(false).build();
         User user2 = new UserBuilder().id(2).name("Ana").birthdate(calendar2).active(false).build();
-        
+
         List<User> users = new ArrayList<User>();
         users.add(user1);
         users.add(user2);
@@ -48,6 +48,12 @@ public class TaskBuilderTest {
         assertEquals(task.getId(), task2.getId());
         assertEquals(task.getState(), task2.getState());
         assertEquals(task.getUsers().size(), task2.getUsers().size());
+    }
+
+    @Test
+    public void testConstructorInt() {
+        TaskBuilder taskBuilderTest = new TaskBuilder(1);
+        assertEquals(1, taskBuilderTest.build().getId());
     }
 
 }

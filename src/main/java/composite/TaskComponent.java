@@ -8,6 +8,4 @@ public abstract class TaskComponent {
 
     public abstract void add(TaskComponent taskComponent);
 
-    public abstract int numberOfTaskComponents();
-
 }

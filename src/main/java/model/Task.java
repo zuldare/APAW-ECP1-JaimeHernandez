@@ -13,7 +13,7 @@ public class Task {
     public Task(int id) {
         this.id = id;
         this.state = State.CREATED;
-        this.users = new ArrayList<User>();
+        this.users = new ArrayList<>();
     }
 
     public Task(int id, State state, List<User> users) {
@@ -21,7 +21,7 @@ public class Task {
         this.id = id;
         this.state = state;
         if (users == null) {
-            this.users = new ArrayList<User>();
+            this.users = new ArrayList<>();
         } else {
             this.users = users;
         }

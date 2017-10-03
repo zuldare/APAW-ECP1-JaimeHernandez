@@ -10,7 +10,7 @@ public class TaskComposite extends TaskComponent {
 
     public TaskComposite(String name) {
         this.name = name;
-        this.listTaskComponents = new ArrayList<TaskComponent>();
+        this.listTaskComponents = new ArrayList<>();
     }
 
     @Override
@@ -20,11 +20,14 @@ public class TaskComposite extends TaskComponent {
 
     @Override
     public String viewBranchBrothers() {
-        String result = "";
+        StringBuilder result = new StringBuilder("");
         for (TaskComponent taskComponent : listTaskComponents) {
-            result += this.toString() + " tiene " + taskComponent.view() + "; ";
+            result.append(this.toString());
+            result.append(" tiene ");
+            result.append(taskComponent.view());
+            result.append("; ");
         }
-        return result;
+        return result.toString();
     }
 
     @Override
@@ -36,11 +39,6 @@ public class TaskComposite extends TaskComponent {
     public void add(TaskComponent taskComponent) {
         assert taskComponent != null;
         this.listTaskComponents.add(taskComponent);
-    }
-
-    @Override
-    public int numberOfTaskComponents() {
-        return this.listTaskComponents.size();
     }
 
 }
