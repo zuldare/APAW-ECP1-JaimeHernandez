@@ -11,11 +11,11 @@ public class Task {
     private List<User> users = new ArrayList<User>();
 
     public Task(int id) {
-        this.id=id;
+        this.id = id;
         this.state = State.CREATED;
         this.users = new ArrayList<User>();
     }
-    
+
     public Task(int id, State state, List<User> users) {
         assert state != null;
         assert users != null;
