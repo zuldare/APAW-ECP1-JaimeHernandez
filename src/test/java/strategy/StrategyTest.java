@@ -13,6 +13,13 @@ public class StrategyTest {
         assertEquals("Por defecto", team.getUsedStrategyName());
     }
 
+    @Test
+    public void testOKTeamAlignment() {
+        team = new Team("Team Madrid", new OffensiveStrategy());
+        String resultOk = "Equipo: Team Madrid  ; Estrategia: Ofensiva ; Portero [1] ; Defensas [4] ; Centrocampistas [3] ; Delanteros [3]\n";
+        assertEquals(resultOk, team.toString());
+    }
+
     public void changeToStrategy(TeamStrategy teamStrategy) {
         testCreateStrategy();
         team.setStrategy(teamStrategy);
@@ -37,5 +44,10 @@ public class StrategyTest {
     @Test
     public void changeToUltraDefensiveStrategyTest() {
         changeToStrategy(new UltraDefensiveStrategy());
+    }
+
+    @Test
+    public void changeToDefaultStrategyTest() {
+        changeToStrategy(new DefaultStrategy());
     }
 }
