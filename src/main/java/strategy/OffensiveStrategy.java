@@ -4,6 +4,7 @@ public class OffensiveStrategy extends TeamStrategy {
 
     public OffensiveStrategy() {
         this.strategyName = "Ofensiva";
+        this.useStrategy();
     }
 
     @Override
