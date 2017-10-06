@@ -1,7 +1,7 @@
 package strategy;
 
 public class DefaultStrategy extends TeamStrategy {
-    
+
     public DefaultStrategy() {
         this.strategyName = "Por defecto";
     }
