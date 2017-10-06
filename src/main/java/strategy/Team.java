@@ -10,7 +10,7 @@ public class Team {
         assert name != null;
         assert teamStrategy != null;
         this.name = name;
-        this.teamStrategy = new DefaultStrategy();
+        setStrategy(teamStrategy);
     }
 
     public void setStrategy(TeamStrategy teamStrategy) {
