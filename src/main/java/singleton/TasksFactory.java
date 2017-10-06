@@ -14,8 +14,7 @@ public class TasksFactory {
     private Task task;
 
     private TasksFactory() {
-        this.tasks = new HashMap<>();
-        this.task = new Task(0);
+        this.tasks = new HashMap<Integer, Task>(); 
     }
 
     public static TasksFactory getTasksFactory() {
